@@ -17,9 +17,11 @@ X[:,1:3] = imputer.transform(X[:,1:3])
 # Encoding categorical data
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 
+# USED FOR ORDINAL DATA
 labelencoder_X = LabelEncoder()
 X[:, 0] = labelencoder_X.fit_transform(X[:,0]) # Convert string labels to Integers
 
+# USED FOR CATEGORICAL DATA
 onehotencoder = OneHotEncoder(categorical_features = [0]) # create a bit column for each label
 X = onehotencoder.fit_transform(X).toarray()
 labelencoder_Y = LabelEncoder()
